@@ -9,10 +9,9 @@ public class SharedPreferenceAdapter {
 
     public void putString(Context context, String key, String value) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
-        //MODE_PRIVATE başka yerlerdern dosyaya erişimi engelliyor. Burada getPreferences sınıfıda kullanılabilirdi
-        //Ama getPreferences sınıfı sadece bulunduğu aktivitede kullanılabilir. getShared ise tüm aktivitelerde
-        //kullanılabilir.
-
+        //MODE_PRIVATE is block accesing to file from another action. We can use getPreferences in here but getPreferences
+        //can using only where to calling. However getShared Class is can use all activities.
+     
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(key, value);
         editor.commit(); //editör is closed
