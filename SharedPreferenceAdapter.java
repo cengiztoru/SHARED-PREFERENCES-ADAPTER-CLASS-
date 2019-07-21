@@ -20,14 +20,14 @@ public class SharedPreferenceAdapter {
 
     public String getString (Context context, String key){
         SharedPreferences sharedPreferences = context.getSharedPreferences(FILE_NAME,Context.MODE_PRIVATE);
-        return sharedPreferences.getString(key,null).toString().trim();
+        return sharedPreferences.getString(key,"").toString().trim();
     }
 
     public void putInteger(Context context, String key, int value) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(key, value);
-        editor.commit(); //editör kapatıldı.
+        editor.commit(); //editör is closed.
 
     }
 
@@ -40,7 +40,7 @@ public class SharedPreferenceAdapter {
         SharedPreferences sharedPreferences = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(key, value);
-        editor.commit(); //editör kapatıldı.
+        editor.commit(); 
 
     }
 
